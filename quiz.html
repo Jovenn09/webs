@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PASAGOT SURVEY LANG HAHAHAHHAHAA</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <div class="container">
+        <h1>PASAGOT SURVEY LANG HAHAHAHHAHAA</h1>
+        
+        <!-- Question 1: Simple Math -->
+        <div class="question">
+            <label for="q1">1 + 1 = ?</label>
+            <input type="text" id="q1" placeholder="Enter your answer">
+        </div>
+
+        <!-- Question 2: Simple Math -->
+        <div class="question">
+            <label for="q2">5 - 2 = ?</label>
+            <input type="text" id="q2" placeholder="Enter your answer">
+        </div>
+
+        <!-- Question 3: Simple Math -->
+        <div class="question">
+            <label for="q3">10 ÷ 2 = ?</label>
+            <input type="text" id="q3" placeholder="Enter your answer">
+        </div>
+
+        <!-- Bonus Question: Personal -->
+        <div class="question">
+            <label for="q4">Bonus - Anong tawag ko sa'yo?</label>
+            <input type="text" id="q4" placeholder="Enter your answer">
+        </div>
+
+        <button onclick="checkAnswers()">Submit</button>
+
+        <div id="errorMessage" class="error-message"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const answer1 = document.getElementById('q1').value;
+            const answer2 = document.getElementById('q2').value;
+            const answer3 = document.getElementById('q3').value;
+            const answer4 = document.getElementById('q4').value.toLowerCase();
+
+            const correctAnswer1 = "2"; // Correct answer for 1 + 1
+            const correctAnswer2 = "3"; // Correct answer for 5 - 2
+            const correctAnswer3 = "5"; // Correct answer for 10 ÷ 2
+            const correctAnswer4 = "love"; // Replace with her nickname
+
+            if (answer1 === correctAnswer1 && answer2 === correctAnswer2 && answer3 === correctAnswer3 && answer4 === correctAnswer4) {
+                window.location.href = "love.html"; // Redirect to love message page
+            } else {
+                document.getElementById('errorMessage').textContent = "Mali ang sagot! Please try again.";
+            }
+        }
+    </script>
+</body>
+</html>

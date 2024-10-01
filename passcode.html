@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Passcode</title>
+    <link rel="stylesheet" href="passcode.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter the Passcode to Proceed</h1>
+        <div class="input-container">
+            <input type="password" id="passcode" placeholder="Enter passcode" maxlength="6" readonly>
+        </div>
+
+        <div class="numpad">
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button onclick="clearPasscode()">Clear</button>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="checkPasscode()">Submit</button>
+        </div>
+
+        <div id="errorMessage" class="error-message"></div>
+    </div>
+
+    <script>
+        function appendNumber(number) {
+            const passcodeInput = document.getElementById("passcode");
+            if (passcodeInput.value.length < 6) {
+                passcodeInput.value += number;
+            }
+        }
+
+        function clearPasscode() {
+            document.getElementById("passcode").value = '';
+        }
+
+        function checkPasscode() {
+            const enteredPasscode = document.getElementById("passcode").value;
+            const correctPasscode = "060824";
+
+            if (enteredPasscode === correctPasscode) {
+                window.location.href = "quiz.html"; // Redirect to love message page
+            } else {
+                document.getElementById("errorMessage").textContent = "Incorrect passcode. Please try again.";
+            }
+        }
+    </script>
+</body>
+</html>
